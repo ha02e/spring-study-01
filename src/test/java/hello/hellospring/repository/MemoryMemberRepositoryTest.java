@@ -43,4 +43,21 @@ class MemoryMemberRepositoryTest {
 
         assertThat(result).isEqualTo(member1);
     }
+
+    @Test
+    public void findAll(){
+        //모든 회원 리스트 테스트
+        Member member1 = new Member();
+        member1.setName("spring1");
+        repository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("spring2");
+        repository.save(member2);
+
+        //검증
+        List<Member> result = repository.findAll();
+
+        assertThat(result.size()).isEqualTo(2);
+    }
 }
